@@ -17,7 +17,8 @@
 /**/.env.example
 /**/*.env
 /**/*.env.*
-env.*
+# Note: env.* rule removed - it was incorrectly ignoring env.config.ts files
+# env.config.ts files are source code and should be tracked
 *.env
 .env
 .env.*
