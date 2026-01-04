@@ -1,0 +1,20 @@
+div.products {
+  flex: 1;
+}
+
+div.productList {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media only screen and (width <=960px) {
+  article.product span.name {
+    text-align: center;
+    padding: 5px;
+  }
+
+  div.pager {
+    margin: 5px 10px 15px;
+  }
+}

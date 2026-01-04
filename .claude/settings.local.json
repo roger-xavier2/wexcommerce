@@ -1,0 +1,20 @@
+{
+  "enabledMcpjsonServers": [
+    "filesystem",
+    "fetch",
+    "git",
+    "memory",
+    "puppeteer",
+    "brave-search",
+    "github",
+    "postgres",
+    "sqlite",
+    "Figma",
+    "Context7",
+    "github.com/mrexodia/ida-pro-mcp",
+    "Hopper",
+    "wiremcp",
+    "Playwright",
+    "jadx-mcp-server"
+  ]
+}

@@ -1,0 +1,15 @@
+[Unit]
+Description=wexCommerce frontend
+Wants=wexcommerce.service
+After=wexcommerce.service
+
+[Service]
+ExecStart=/usr/bin/npm run start
+WorkingDirectory=/opt/wexcommerce/frontend
+Type=simple
+Restart=always
+StandardOutput=append:/var/log/wexcommerce-frontend.log
+StandardError=append:/var/log/wexcommerce-frontend.log
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,21 @@
+{
+  "source": "https://suitsupply.com/fr-fr/",
+  "downloadedAt": "2025-12-28T09:53:21Z",
+  "size": "desktop",
+  "variants": {
+    "mobile": {
+      "dir": "mobile",
+      "files": [
+        "slide01.jpg",
+        "slide02.jpg"
+      ]
+    },
+    "desktop": {
+      "dir": "desktop",
+      "files": [
+        "slide01.jpg",
+        "slide02.jpg"
+      ]
+    }
+  }
+}

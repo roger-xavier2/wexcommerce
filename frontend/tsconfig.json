@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [{"name": "next"}],
+
+    "typeRoots": ["./node_modules/@types", "./types", "./src/types"],
+
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./src/*"],
+      ":wexcommerce-types": ["../packages/wexcommerce-types"],
+      ":wexcommerce-helper": ["../packages/wexcommerce-helper"],
+      ":reactjs-social-login": ["../packages/reactjs-social-login"],
+    },
+    "downlevelIteration": true,
+    "target": "ESNext"
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": ["node_modules", ".next"],
+  "references": [
+    { "path": "../packages/wexcommerce-types" },
+    { "path": "../packages/wexcommerce-helper" },
+    { "path": "../packages/reactjs-social-login" },
+  ]
+}

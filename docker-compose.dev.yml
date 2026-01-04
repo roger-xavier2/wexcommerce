@@ -1,0 +1,85 @@
+services:
+  mongo:
+    image: mongo:latest
+    command: mongod --quiet --logpath /dev/null
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    ports:
+      - 27018:27017
+    volumes:
+      - mongodb_data:/data/db
+      - mongodb_config:/data/configdb
+
+  mongo-express:
+    image: mongo-express:latest
+    restart: always
+    ports:
+      - 8084:8081
+    environment:
+      ME_CONFIG_MONGODB_URL: mongodb://admin:admin@mongo:27017/
+      ME_CONFIG_BASICAUTH_USERNAME: admin
+      ME_CONFIG_BASICAUTH_PASSWORD: admin
+    depends_on:
+      - mongo
+
+  wc-dev-backend:
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile.dev
+    env_file: ./backend/.env.docker.development
+    restart: always
+    ports:
+      - 4005:4005
+    networks:
+      default:
+        aliases:
+          - wc-backend
+    depends_on:
+      - mongo
+    volumes:
+      - cdn:/var/www/cdn/wexcommerce
+      - ./backend:/wexcommerce/backend
+      - /wexcommerce/backend/node_modules
+      - backend_logs:/wexcommerce/backend/logs
+
+  wc-dev-admin:
+    build:
+      context: .
+      dockerfile: ./admin/Dockerfile.dev
+    env_file: ./admin/.env.docker.development
+    restart: always
+    depends_on:
+      - wc-dev-backend
+    ports:
+      - 8005:8005
+    volumes:
+      - ./admin:/wexcommerce/admin
+      - /wexcommerce/admin/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+
+  wc-dev-frontend:
+    build:
+      context: .
+      dockerfile: ./frontend/Dockerfile.dev
+    env_file: ./frontend/.env.docker.development
+    restart: always
+    depends_on:
+      - wc-dev-backend
+    ports:
+      - 8006:8006
+    volumes:
+      - ./frontend:/wexcommerce/frontend
+      - /wexcommerce/frontend/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+
+volumes:
+  cdn:
+  mongodb_data:
+  mongodb_config:
+  backend_logs:

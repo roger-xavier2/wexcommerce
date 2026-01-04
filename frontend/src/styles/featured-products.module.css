@@ -1,0 +1,35 @@
+section.main {
+  flex: 1;
+}
+
+section.main h1.title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 500;
+}
+
+section.main .slider {
+  height: 320px;
+}
+
+section.main .btnSlider {
+  color: #000 !important;
+}
+
+section.main .btnSliderPrev {
+  margin-right: 60px;
+}
+
+section.main .btnSliderNext {
+  margin-left: 60px;
+}
+
+@media only screen and (width <=960px) {
+  section.main .btnSliderPrev {
+    margin-right: 20px;
+  }
+
+  section.main .btnSliderNext {
+    margin-left: 20px;
+  }
+}

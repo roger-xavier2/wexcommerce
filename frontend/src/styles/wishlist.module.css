@@ -1,0 +1,37 @@
+div.main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+div.main div.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 15px;
+  margin: 0 10px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+div.main div.products {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media only screen and (width <=960px) {
+  div.main {
+    margin-top: 5px;
+  }
+}
+
+@media only screen and (width >=960px) {
+  div.main {
+    max-width: 1124px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 30px;
+    margin-top: 15px;
+  }
+}

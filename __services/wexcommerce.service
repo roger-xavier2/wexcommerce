@@ -1,0 +1,15 @@
+[Unit]
+Description=wexCommerce backend server
+Wants=mongod.service
+After=mongod.service
+
+[Service]
+ExecStart=/usr/bin/npm start
+WorkingDirectory=/opt/wexcommerce/backend
+Type=simple
+Restart=always
+StandardOutput=append:/var/log/wexcommerce.log
+StandardError=append:/var/log/wexcommerce.log
+
+[Install]
+WantedBy=multi-user.target

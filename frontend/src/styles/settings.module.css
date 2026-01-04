@@ -1,0 +1,22 @@
+@media only screen and (width <=960px) {
+    .form {
+        margin: 45px 0 20px calc(50% - 175px);
+        width: 350px;
+        padding: 30px;
+    }
+}
+
+
+@media only screen and (width >=960px) {
+    .form {
+        margin: 45px 0 20px calc(50% - 275px);
+        width: 550px;
+        padding: 30px;
+    }
+}
+
+.form .formTitle {
+    text-align: center;
+    text-transform: none;
+    color: #1d1d1b;
+}
